@@ -76,4 +76,5 @@ menu:
       weight: 30
     - identifier: search
       name: Search
-      url
+      url: /search/
+      weight: 40
