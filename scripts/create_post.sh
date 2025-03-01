@@ -1,11 +1,11 @@
 #!/bin/bash
 
-# Скрипт для создания нового поста в блоге
-# Использование: ./create_post.sh "Название поста" "slug-поста" "YYYY-MM-DD" "image1.jpg,image2.jpg,..."
+# Script for creating a new blog post
+# Usage: ./create_post.sh "Post Title" "post-slug" "YYYY-MM-DD" "image1.jpg,image2.jpg,..."
 
-# Проверка аргументов
+# Check arguments
 if [ $# -lt 4 ]; then
-  echo "Использование: $0 \"Название поста\" \"slug-поста\" \"YYYY-MM-DD\" \"image1.jpg,image2.jpg,...\""
+  echo "Usage: $0 \"Post Title\" \"post-slug\" \"YYYY-MM-DD\" \"image1.jpg,image2.jpg,...\""
   exit 1
 fi
 
@@ -14,30 +14,30 @@ SLUG="$2"
 DATE="$3"
 IMAGES="$4"
 
-# Создание директорий
+# Create directories
 mkdir -p "static/posts/$SLUG/images"
-echo "Создана директория: static/posts/$SLUG/images"
+echo "Directory created: static/posts/$SLUG/images"
 
-# Обработка изображений
+# Process images
 IFS=',' read -ra IMG_ARRAY <<< "$IMAGES"
 for i in "${!IMG_ARRAY[@]}"; do
   IMG="${IMG_ARRAY[$i]}"
-  # Проверка существования изображения
+  # Check if image exists
   if [ -f "static/images/$IMG" ]; then
-    # Генерация имени для изображения
+    # Generate name for the image
     NEW_NAME=$(echo "$SLUG-image-$((i+1))" | tr ' ' '-').jpg
-    # Копирование изображения
+    # Copy image
     cp "static/images/$IMG" "static/posts/$SLUG/images/$NEW_NAME"
-    echo "Скопировано изображение: $IMG -> $NEW_NAME"
-    # Удаление оригинального изображения
+    echo "Image copied: $IMG -> $NEW_NAME"
+    # Delete original image
     rm "static/images/$IMG"
-    echo "Удалено оригинальное изображение: $IMG"
+    echo "Original image deleted: $IMG"
   else
-    echo "Ошибка: Изображение $IMG не найдено в директории static/images/"
+    echo "Error: Image $IMG not found in static/images/ directory"
   fi
 done
 
-# Создание шаблона поста
+# Create post template
 cat > "content/posts/$SLUG.md" << EOF
 ---
 title: "$TITLE"
@@ -45,37 +45,37 @@ date: $DATE
 draft: false
 tags: ["Tag1", "Tag2", "Tag3"]
 categories: ["Category1", "Category2"]
-description: "Краткое описание поста"
+description: "Brief description of the post"
 ---
 
 # $TITLE
 
 ![Main Image](/posts/$SLUG/images/${SLUG}-image-1.jpg)
 
-Введение к посту...
+Introduction to the post...
 
-## Раздел 1
+## Section 1
 
-Содержание раздела 1...
+Content of section 1...
 
-## Раздел 2
+## Section 2
 
-Содержание раздела 2...
+Content of section 2...
 
-## Заключение
+## Conclusion
 
-Заключительные мысли...
+Concluding thoughts...
 
 ---
 
-Вопросы или комментарии? Поделитесь ими ниже!
+Questions or comments? Share them below!
 EOF
 
-echo "Создан шаблон поста: content/posts/$SLUG.md"
-echo "Не забудьте отредактировать метаданные и содержимое поста!"
+echo "Post template created: content/posts/$SLUG.md"
+echo "Don't forget to edit the metadata and content of the post!"
 
-# Добавление файлов в Git
+# Add files to Git
 git add "content/posts/$SLUG.md" "static/posts/$SLUG/"
-echo "Файлы добавлены в Git"
+echo "Files added to Git"
 
-echo "Готово! Пост создан и готов к редактированию." 
+echo "Done! Post created and ready for editing." 

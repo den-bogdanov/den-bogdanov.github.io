@@ -1,64 +1,64 @@
-# Персональный блог
+# Personal Blog
 
-Этот репозиторий содержит исходный код моего персонального блога, созданного с использованием Hugo.
+This repository contains the source code of my personal blog created with Hugo.
 
-## Структура проекта
+## Project Structure
 
-- `content/` - содержимое блога (посты, страницы)
-- `static/` - статические файлы (изображения, CSS, JavaScript)
-- `layouts/` - шаблоны для отображения контента
-- `scripts/` - вспомогательные скрипты для управления блогом
+- `content/` - blog content (posts, pages)
+- `static/` - static files (images, CSS, JavaScript)
+- `layouts/` - templates for displaying content
+- `scripts/` - helper scripts for blog management
 
-## Использование скриптов
+## Using Scripts
 
-### Создание нового поста
+### Creating a New Post
 
-Для создания нового поста используйте скрипт `create_post.sh`:
+To create a new post, use the `create_post.sh` script:
 
 ```bash
-./scripts/create_post.sh "Название поста" "slug-поста" "YYYY-MM-DD" "image1.jpg,image2.jpg,..."
+./scripts/create_post.sh "Post Title" "post-slug" "YYYY-MM-DD" "image1.jpg,image2.jpg,..."
 ```
 
-Например:
+For example:
 
 ```bash
 ./scripts/create_post.sh "DeepSeek Releases Version 3" "deepseek-v3" "2024-12-30" "image1.jpg,image2.jpg"
 ```
 
-Скрипт выполнит следующие действия:
-1. Создаст директорию для изображений поста
-2. Скопирует указанные изображения из `static/images/` в директорию поста
-3. Удалит оригинальные изображения для экономии места
-4. Создаст шаблон поста с базовой структурой
-5. Добавит файлы в Git
+The script will perform the following actions:
+1. Create a directory for post images
+2. Copy specified images from `static/images/` to the post directory
+3. Delete original images to save space
+4. Create a post template with basic structure
+5. Add files to Git
 
-### Очистка дублирующихся изображений
+### Cleaning Up Duplicate Images
 
-Для очистки дублирующихся изображений используйте скрипт `cleanup_images.sh`:
+To clean up duplicate images, use the `cleanup_images.sh` script:
 
 ```bash
 ./scripts/cleanup_images.sh
 ```
 
-Скрипт проверит все изображения в директории `static/images/` и удалит те, которые уже скопированы в директории постов.
+The script will check all images in the `static/images/` directory and delete those that have already been copied to post directories.
 
-## Запуск локального сервера
+## Running a Local Server
 
-Для запуска локального сервера разработки используйте команду:
+To run a local development server, use the command:
 
 ```bash
 hugo server -D
 ```
 
-Сайт будет доступен по адресу http://localhost:1313/
+The site will be available at http://localhost:1313/
 
-## Сборка сайта
+## Building the Site
 
-Для сборки статического сайта используйте команду:
+To build the static site, use the command:
 
 ```bash
 hugo
 ```
 
-Результат сборки будет помещен в директорию `public/`.
+The build result will be placed in the `public/` directory.
 
