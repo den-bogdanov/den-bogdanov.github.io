@@ -9,7 +9,7 @@ description: "How AI coding assistants are revolutionizing software development 
 
 # The Rise of AI Coding Assistants: Transforming Software Development
 
-![AI Coding Assistant](/images/ai-coding-assistant.jpg)
+![AI Coding Assistant](/posts/ai-coding-assistants/images/ai-coding-assistant.jpg)
 
 ## How AI is Changing the Way We Code
 

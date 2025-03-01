@@ -9,13 +9,13 @@ description: "Perplexity has introduced new features for business clients, inclu
 
 # Perplexity Launches Internal Knowledge Search for Business and New Spaces
 
-![Perplexity AI](/images/perplexity-ai.jpg)
+![Perplexity AI](/posts/perplexity-business-search/images/perplexity-ai.jpg)
 
 ## New Capabilities for Business Clients
 
 Perplexity has introduced an important update for its business clients — internal corporate knowledge search. This feature allows users to simultaneously search for information in both their organization's files and on the internet, combining internal and external data sources in a single interface.
 
-{{< figure src="/images/perplexity-ai.jpg" alt="Perplexity AI Interface" caption="Perplexity's new interface for business clients" >}}
+{{< figure src="/posts/perplexity-business-search/images/perplexity-ai.jpg" alt="Perplexity AI Interface" caption="Perplexity's new interface for business clients" >}}
 
 ## Spaces — AI Hubs for Collaboration
 

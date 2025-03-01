@@ -9,7 +9,7 @@ description: "Discover the powerful features of Telegram channels and how to use
 
 # The Ultimate Guide to Telegram Channels: Features and Best Practices
 
-![Telegram Channels](/images/telegram-channels.jpg)
+![Telegram Channels](/posts/telegram-channels-guide/images/telegram-channels.jpg)
 
 Telegram channels have become one of the most powerful tools for content creators, businesses, and organizations to reach their audience directly. Unlike other social media platforms, Telegram channels offer unique features that make content distribution more efficient and engaging.
 

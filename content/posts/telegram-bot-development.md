@@ -9,7 +9,7 @@ description: "Learn how to create powerful AI-integrated Telegram bots with best
 
 # Building AI-Powered Telegram Bots: A Comprehensive Guide
 
-![Telegram Bot Development](/images/telegram-bot.jpg)
+![Telegram Bot Development](/posts/telegram-bot-development/images/telegram-bot.jpg)
 
 Telegram bots have become increasingly popular for businesses, content creators, and developers looking to automate interactions and provide services to users. When combined with AI capabilities, these bots can deliver sophisticated, personalized experiences. This guide covers the essential steps and best practices for developing AI-powered Telegram bots.
 
