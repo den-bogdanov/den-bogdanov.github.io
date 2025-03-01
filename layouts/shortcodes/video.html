@@ -1,0 +1,4 @@
+<video width="100%" controls {{ with .Get "preload" }}preload="{{ . }}"{{ end }}>
+  <source src="{{ .Get "src" }}" {{ with .Get "type" }}type="{{ . }}"{{ end }}>
+  Your browser does not support the video tag.
+</video> 
