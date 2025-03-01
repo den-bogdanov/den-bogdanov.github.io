@@ -1,44 +1,44 @@
 ---
-title: "NotebookLM добавляет функцию подкастов и запускает бизнес-версию"
+title: "NotebookLM Adds Podcast Feature and Launches Business Version"
 date: 2024-10-20
 draft: false
-tags: ["AI", "NotebookLM", "Google", "подкасты", "бизнес-инструменты"]
-categories: ["Технологии", "Искусственный интеллект"]
-description: "Google добавил в NotebookLM новую функцию создания подкастов с возможностью настройки и запустил бизнес-версию сервиса для организаций."
+tags: ["AI", "NotebookLM", "Google", "podcasts", "business tools"]
+categories: ["Technology", "Artificial Intelligence"]
+description: "Google has added a new podcast creation feature with customization options to NotebookLM and launched a business version of the service for organizations."
 ---
 
-# NotebookLM добавляет функцию подкастов и запускает бизнес-версию
+# NotebookLM Adds Podcast Feature and Launches Business Version
 
 ![NotebookLM Podcast Feature](/posts/notebooklm-podcast-feature/images/notebooklm-podcast.jpg)
 
-## Новая функция "передай записку подкастерам"
+## New "Pass a Note to Podcasters" Feature
 
-В NotebookLM добавили интересную функцию "передай записку подкастерам". Эта новая возможность значительно расширяет функциональность платформы и делает работу с контентом еще более гибкой.
+NotebookLM has added an interesting "pass a note to podcasters" feature. This new capability significantly expands the platform's functionality and makes working with content even more flexible.
 
-Теперь пользователи могут давать инструкции перед созданием подкаста. Это позволит сосредоточить внимание на конкретных темах или настроить уровень экспертизы в соответствии с нужной аудиторией.
+Now users can provide instructions before creating a podcast. This allows them to focus attention on specific topics or adjust the level of expertise to match the intended audience.
 
-## Мультизадачность при работе с аудио
+## Multitasking with Audio
 
-Пользователи также могут слушать аудиообзоры, продолжая работать в NotebookLM. Это означает, что они могут делать запросы по своим источникам, получать цитаты и изучать соответствующие материалы, не прерывая аудио.
+Users can also listen to audio reviews while continuing to work in NotebookLM. This means they can make queries about their sources, get quotes, and explore relevant materials without interrupting the audio.
 
-Такая мультизадачность существенно повышает продуктивность работы с платформой, позволяя одновременно получать информацию через разные каналы восприятия.
+This multitasking capability substantially increases productivity when working with the platform, allowing users to simultaneously receive information through different perception channels.
 
-## NotebookLM Business для организаций
+## NotebookLM Business for Organizations
 
-Google также представил NotebookLM Business — новую версию сервиса, доступную через Google Workspace с расширенными функциями для бизнеса, университетов и других организаций.
+Google has also introduced NotebookLM Business — a new version of the service available through Google Workspace with enhanced features for businesses, universities, and other organizations.
 
-Ключевые особенности бизнес-версии:
-- Повышенная конфиденциальность и безопасность данных
-- Интеграция с корпоративными системами
-- Расширенные возможности для командной работы
-- Специальные инструменты для образовательных учреждений
+Key features of the business version include:
+- Enhanced data privacy and security
+- Integration with corporate systems
+- Advanced capabilities for team collaboration
+- Special tools for educational institutions
 
-Более 80 000 организаций уже используют NotebookLM, что свидетельствует о высоком спросе на подобные решения в корпоративном секторе.
+More than 80,000 organizations are already using NotebookLM, indicating high demand for such solutions in the corporate sector.
 
-## Как получить доступ к бизнес-версии
+## How to Access the Business Version
 
-Чтобы получить доступ к NotebookLM Business, необходимо подать заявку на участие в пилотной программе. Google обещает предоставить дополнительную информацию о широкой доступности и ценах на NotebookLM Business позже в этом году.
+To access NotebookLM Business, you need to apply for participation in the pilot program. Google promises to provide additional information about general availability and pricing for NotebookLM Business later this year.
 
 ---
 
-Эти обновления демонстрируют, как Google продолжает развивать свои инструменты на базе искусственного интеллекта, делая их более функциональными и адаптированными под различные сценарии использования — от индивидуальной работы до корпоративных решений. 
+These updates demonstrate how Google continues to develop its AI-based tools, making them more functional and adapted to various use cases — from individual work to corporate solutions. 
