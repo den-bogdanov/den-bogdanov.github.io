@@ -1,0 +1,141 @@
+/* Profile image styling */
+.profile-image {
+    border-radius: 50%;
+    max-width: 200px;
+    margin: 0 auto 2rem;
+    border: 3px solid #3498db;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+  }
+  
+  /* Floating images */
+  .right-float-image {
+    float: right;
+    margin: 0 0 1rem 1rem;
+    max-width: 30%;
+    border-radius: 8px;
+    box-shadow: 0 3px 10px rgba(0,0,0,0.1);
+  }
+  
+  .left-float-image {
+    float: left;
+    margin: 0 1rem 1rem 0;
+    max-width: 30%;
+    border-radius: 8px;
+    box-shadow: 0 3px 10px rgba(0,0,0,0.1);
+  }
+  
+  /* Section dividers */
+  hr {
+    border: 0;
+    height: 1px;
+    background-image: linear-gradient(to right, rgba(0,0,0,0), rgba(0,0,0,0.75), rgba(0,0,0,0));
+    margin: 2rem 0;
+  }
+  
+  /* Skills tags */
+  .skills-container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1.5rem;
+    margin: 1.5rem 0;
+  }
+  
+  .skill-category {
+    flex: 1;
+    min-width: 200px;
+  }
+  
+  .skill-tag {
+    display: inline-block;
+    background: #3498db;
+    color: white;
+    padding: 0.3rem 0.8rem;
+    border-radius: 20px;
+    margin: 0.2rem;
+    font-size: 0.9rem;
+  }
+  
+  /* Education timeline */
+  .education-container {
+    margin: 2rem 0;
+  }
+  
+  .education-item {
+    display: flex;
+    margin-bottom: 1.5rem;
+  }
+  
+  .education-year {
+    flex: 0 0 100px;
+    font-weight: bold;
+    color: #3498db;
+  }
+  
+  /* Connect section */
+  .connect-container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1rem;
+    margin: 1.5rem 0;
+  }
+  
+  .connect-item {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    text-decoration: none;
+    color: #333;
+    padding: 0.5rem 1rem;
+    border-radius: 5px;
+    transition: background 0.3s;
+  }
+  
+  .connect-item:hover {
+    background: #f5f5f5;
+  }
+  
+  /* Call to action buttons */
+  .cta-container {
+    display: flex;
+    gap: 1rem;
+    margin: 2rem 0;
+  }
+  
+  .cta-button {
+    display: inline-block;
+    padding: 0.8rem 1.5rem;
+    background: #3498db;
+    color: white;
+    text-decoration: none;
+    border-radius: 5px;
+    font-weight: bold;
+    transition: all 0.3s;
+  }
+  
+  .cta-button:hover {
+    background: #2980b9;
+    transform: translateY(-2px);
+    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+  }
+  
+  .cta-button.secondary {
+    background: #f5f5f5;
+    color: #333;
+  }
+  
+  .cta-button.secondary:hover {
+    background: #e0e0e0;
+  }
+  
+  /* Responsive adjustments */
+  @media (max-width: 768px) {
+    .right-float-image, .left-float-image {
+      float: none;
+      max-width: 100%;
+      margin: 1rem 0;
+    }
+    
+    .skills-container, .connect-container, .cta-container {
+      flex-direction: column;
+    }
+  }
