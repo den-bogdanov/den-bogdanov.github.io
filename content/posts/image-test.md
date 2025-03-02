@@ -23,8 +23,8 @@ This page tests various ways of loading images to diagnose display issues.
 ### Method 5: Hugo Figure Shortcode
 {{< figure src="/images/logo.png" alt="Logo Image" width="200" >}}
 
-### Method 6: Hugo Image Processing
-{{< img src="/images/logo.png" alt="Logo Image" width="200" >}}
+### Method 6: Standard HTML with Static Path
+<img src="/static/images/logo.png" alt="Logo Image" width="200">
 
 ### Method 7: Static Path Reference
 <img src="{{ .Site.BaseURL }}images/logo.png" alt="Logo Image" width="200">
