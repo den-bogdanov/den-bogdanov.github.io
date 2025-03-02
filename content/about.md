@@ -9,19 +9,6 @@ showToc: false
 
 <link rel="stylesheet" href="/css/about-styles.css">
 
-<!-- Debug section to test image paths -->
-<div style="border: 1px solid red; padding: 10px; margin: 20px 0;">
-  <h3>Debug Information</h3>
-  <p>Testing image paths:</p>
-  <p>Profile image: <img src="/images/about_image.jpg" width="100" alt="Test"></p>
-  <p>Data viz image: <img src="/images/data-visualization.jpg" width="100" alt="Test"></p>
-  <p>Tech stack image: <img src="/images/tech-stack.jpeg" width="100" alt="Test"></p>
-  <p>Interests image: <img src="/images/interests.jpg" width="100" alt="Test"></p>
-  <p>Project1 image: <img src="/images/project1.jpeg" width="100" alt="Test"></p>
-  <p>Project2 image: <img src="/images/project2.jpeg" width="100" alt="Test"></p>
-  <p>Project3 image: <img src="/images/project3.jpg" width="100" alt="Test"></p>
-</div>
-
 <!-- Using direct HTML instead of shortcode for profile image -->
 <figure class="profile-image">
   <img src="/images/about_image.jpg" alt="Denis Bogdanov">
