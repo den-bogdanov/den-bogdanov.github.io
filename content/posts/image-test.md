@@ -26,17 +26,14 @@ This page tests various ways of loading images to diagnose display issues.
 ### Method 6: Standard HTML with Static Path
 <img src="/static/images/logo.png" alt="Logo Image" width="200">
 
-### Method 7: Static Path Reference
-<img src="{{ .Site.BaseURL }}images/logo.png" alt="Logo Image" width="200">
+### Method 7: Direct Reference to Base URL + Path
+<img src="https://den-bogdanov.github.io/images/logo.png" alt="Logo Image" width="200">
 
-### Method 8: Using relURL Function
-<img src="{{ "/images/logo.png" | relURL }}" alt="Logo Image" width="200">
+### Method 8: Using Relative Path
+<img src="/images/logo.png" alt="Logo Image" width="200">
 
-### Method 9: Using absURL Function
-<img src="{{ "/images/logo.png" | absURL }}" alt="Logo Image" width="200">
+### Method 9: Using Absolute Path
+<img src="https://den-bogdanov.github.io/images/logo.png" alt="Logo Image" width="200">
 
-### Method 10: Using resources.Get
-{{ $image := resources.Get "images/logo.png" }}
-{{ with $image }}
-<img src="{{ .RelPermalink }}" alt="Logo Image" width="200">
-{{ end }} 
+### Method 10: Direct Reference to Image in Static Folder
+<img src="/images/logo.png" alt="Logo Image" width="200"> 
