@@ -47,7 +47,7 @@ Before that, I was a **Data Engineer at Magnit**, where I:
 
 <!-- Using absolute URL for this image -->
 <figure class="left-float-image">
-  <img src="/images/skills.png" alt="Technology Stack">
+  <img src="/images/tech-stack.jpeg" alt="Technology Stack">
 </figure>
 
 <div class="skills-container">
@@ -91,7 +91,7 @@ Before that, I was a **Data Engineer at Magnit**, where I:
 ## Education
 
 <!-- Using direct HTML for this image -->
-<img src="/images/education.png" alt="Education" class="education-image">
+<img src="/images/education.jpeg" alt="Education" class="education-image">
 
 <div class="education-container">
   <div class="education-item">
@@ -119,7 +119,7 @@ Before that, I was a **Data Engineer at Magnit**, where I:
 
 <!-- Using direct HTML for this image -->
 <figure class="right-float-image">
-  <img src="/images/beyond_the_code.png" alt="Personal Interests">
+  <img src="/images/interests.jpg" alt="Personal Interests">
 </figure>
 
 When I'm not immersed in data and algorithms, I enjoy:
@@ -138,19 +138,19 @@ I'm also passionate about building data communities. I've organized weekly data 
 
 <div class="projects-showcase">
   <div class="project-card">
-    <img src="/images/project_1.png" alt="Scoring Model Optimization" class="project-image">
+    <img src="/images/project1.jpeg" alt="Scoring Model Optimization" class="project-image">
     <h3 class="project-title">Scoring Model Optimization</h3>
     <p class="project-description">Reimagined the architecture of credit scoring models, resulting in 47% faster processing times while maintaining high accuracy.</p>
   </div>
   
   <div class="project-card">
-    <img src="/images/project_2.png" alt="Data Pipeline Enhancement" class="project-image">
+    <img src="/images/project2.jpeg" alt="Data Pipeline Enhancement" class="project-image">
     <h3 class="project-title">Data Pipeline Enhancement</h3>
     <p class="project-description">Streamlined the data exchange process with external partners, reducing turnaround time from 21 to 7 days.</p>
   </div>
   
   <div class="project-card">
-    <img src="/images/project_3.png" alt="Analytics Automation Library" class="project-image">
+    <img src="/images/project3.jpg" alt="Analytics Automation Library" class="project-image">
     <h3 class="project-title">Analytics Automation Library</h3>
     <p class="project-description">Developed internal libraries that automated repetitive data preparation tasks, making the analytics process 3x faster.</p>
   </div>
@@ -162,23 +162,19 @@ I'm also passionate about building data communities. I've organized weekly data 
 
 <div class="connect-container">
   <a href="mailto:denis.bogdanov.work@gmail.com" class="connect-item">
-    {{< icon "email" >}}
-    <span>denis.bogdanov.work@gmail.com</span>
+    <span>📧 denis.bogdanov.work@gmail.com</span>
   </a>
   
   <a href="https://linkedin.com/in/yourprofile" class="connect-item">
-    {{< icon "linkedin" >}}
-    <span>linkedin.com/in/yourprofile</span>
+    <span>🔗 linkedin.com/in/yourprofile</span>
   </a>
   
   <a href="https://github.com/yourusername" class="connect-item">
-    {{< icon "github" >}}
-    <span>GitHub</span>
+    <span>💻 GitHub</span>
   </a>
   
   <a href="tel:+48453589202" class="connect-item">
-    {{< icon "phone" >}}
-    <span>+48 453-589-202</span>
+    <span>📱 +48 453-589-202</span>
   </a>
 </div>
 
