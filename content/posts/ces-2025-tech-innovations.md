@@ -11,7 +11,7 @@ description: "Exploring the most groundbreaking technologies and innovations sho
 
 The Consumer Electronics Show (CES) 2025 is currently taking place in Las Vegas, showcasing the most cutting-edge technologies and innovations from around the world. Here are some of the most impressive exhibits that are capturing everyone's attention:
 
-{{< video src="/posts/ces-2025-tech-innovations/videos/pY-qFtseMJ1liwkk.mp4" caption="CES 2025 Highlights - Part 1" >}}
+{{< video src="/videos/pY-qFtseMJ1liwkk.mp4" caption="CES 2025 Highlights - Part 1" >}}
 
 ## Automotive Innovations
 
@@ -32,7 +32,7 @@ An immersive environment where every surface - walls, ceiling, and floor - consi
 ### LG's Transparent Wireless OLED Display
 LG has unveiled a completely transparent OLED display that operates wirelessly, eliminating the need for visible cables while maintaining crystal-clear image quality. The see-through screen blends seamlessly with its surroundings when not in use.
 
-{{< video src="/posts/ces-2025-tech-innovations/videos/puWy6KyDbzy3uOyZ.mp4" caption="CES 2025 Highlights - Part 2" >}}
+{{< video src="/videos/puWy6KyDbzy3uOyZ.mp4" caption="CES 2025 Highlights - Part 2" >}}
 
 ## AI and Computing
 
