@@ -32,15 +32,23 @@ The script will perform the following actions:
 4. Create a post template with basic structure
 5. Add files to Git
 
-### Cleaning Up Duplicate Images
+### Cleaning Up Duplicate Files
 
-To clean up duplicate images, use the `cleanup_images.sh` script:
+To clean up duplicate files and save disk space, use the `cleanup_duplicates.sh` script:
 
 ```bash
-./scripts/cleanup_images.sh
+./scripts/cleanup_duplicates.sh                   # Check for duplicate images between static/images and static/posts
+./scripts/cleanup_duplicates.sh --all             # Check for duplicates of all file types
+./scripts/cleanup_duplicates.sh --between-posts   # Check for duplicates between different posts
+./scripts/cleanup_duplicates.sh --replace-with-symlinks # Automatically replace duplicates with symbolic links
 ```
 
-The script will check all images in the `static/images/` directory and delete those that have already been copied to post directories.
+You can combine options, for example:
+```bash
+./scripts/cleanup_duplicates.sh --all --replace-with-symlinks # Replace all duplicate files with symbolic links
+```
+
+The script identifies duplicate files based on content comparison and can automatically replace them with symbolic links to save space.
 
 ## Running a Local Server
 
