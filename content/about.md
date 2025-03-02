@@ -9,7 +9,23 @@ showToc: false
 
 <link rel="stylesheet" href="/css/about-styles.css">
 
-{{< figure src="/images/about_image.jpg" alt="Denis Bogdanov" class="profile-image" >}}
+<!-- Debug section to test image paths -->
+<div style="border: 1px solid red; padding: 10px; margin: 20px 0;">
+  <h3>Debug Information</h3>
+  <p>Testing image paths:</p>
+  <p>Profile image: <img src="/images/about_image.jpg" width="100" alt="Test"></p>
+  <p>Data viz image: <img src="/images/data-visualization.jpg" width="100" alt="Test"></p>
+  <p>Tech stack image: <img src="/images/tech-stack.jpeg" width="100" alt="Test"></p>
+  <p>Interests image: <img src="/images/interests.jpg" width="100" alt="Test"></p>
+  <p>Project1 image: <img src="/images/project1.jpeg" width="100" alt="Test"></p>
+  <p>Project2 image: <img src="/images/project2.jpeg" width="100" alt="Test"></p>
+  <p>Project3 image: <img src="/images/project3.jpg" width="100" alt="Test"></p>
+</div>
+
+<!-- Using direct HTML instead of shortcode for profile image -->
+<figure class="profile-image">
+  <img src="/images/about_image.jpg" alt="Denis Bogdanov">
+</figure>
 
 # Hello, I'm Denis Bogdanov
 
@@ -21,7 +37,10 @@ I'm a Data Analyst with over 5 years of commercial experience in data manipulati
 
 ## Professional Background
 
-{{< figure src="/images/data-visualization.jpg" alt="Data Visualization" class="right-float-image" >}}
+<!-- Using direct HTML instead of shortcode for this image -->
+<figure class="right-float-image">
+  <img src="/images/data-visualization.jpg" alt="Data Visualization">
+</figure>
 
 Currently, I work at **Tinkoff Bank** as a Data Analyst, where I've:
 - 📊 Implemented a new scoring model architecture that reduced scoring time by 47%
@@ -39,7 +58,10 @@ Before that, I was a **Data Engineer at Magnit**, where I:
 
 ## Skills & Expertise
 
-{{< figure src="/images/tech-stack.jpeg" alt="Technology Stack" class="left-float-image" >}}
+<!-- Using absolute URL for this image -->
+<figure class="left-float-image">
+  <img src="https://den-bogdanov.github.io/images/tech-stack.jpeg" alt="Technology Stack">
+</figure>
 
 <div class="skills-container">
   <div class="skill-category">
@@ -81,7 +103,8 @@ Before that, I was a **Data Engineer at Magnit**, where I:
 
 ## Education
 
-{{< figure src="/images/education.jpeg" alt="Education" class="education-image" >}}
+<!-- Using direct HTML for this image -->
+<img src="/images/education.jpeg" alt="Education" class="education-image">
 
 <div class="education-container">
   <div class="education-item">
@@ -107,7 +130,10 @@ Before that, I was a **Data Engineer at Magnit**, where I:
 
 ## Beyond the Code
 
-{{< figure src="/images/interests.jpg" alt="Personal Interests" class="right-float-image" >}}
+<!-- Using direct HTML for this image -->
+<figure class="right-float-image">
+  <img src="/images/interests.jpg" alt="Personal Interests">
+</figure>
 
 When I'm not immersed in data and algorithms, I enjoy:
 
@@ -123,25 +149,25 @@ I'm also passionate about building data communities. I've organized weekly data 
 
 ## Recent Projects
 
-{{< showcase >}}
-  {{< project 
-      title="Scoring Model Optimization" 
-      image="/images/project1.jpeg" 
-      description="Reimagined the architecture of credit scoring models, resulting in 47% faster processing times while maintaining high accuracy." 
-  >}}
+<div class="projects-showcase">
+  <div class="project-card">
+    <img src="/images/project1.jpeg" alt="Scoring Model Optimization" class="project-image">
+    <h3 class="project-title">Scoring Model Optimization</h3>
+    <p class="project-description">Reimagined the architecture of credit scoring models, resulting in 47% faster processing times while maintaining high accuracy.</p>
+  </div>
   
-  {{< project 
-      title="Data Pipeline Enhancement" 
-      image="/images/project2.jpeg" 
-      description="Streamlined the data exchange process with external partners, reducing turnaround time from 21 to 7 days." 
-  >}}
+  <div class="project-card">
+    <img src="/images/project2.jpeg" alt="Data Pipeline Enhancement" class="project-image">
+    <h3 class="project-title">Data Pipeline Enhancement</h3>
+    <p class="project-description">Streamlined the data exchange process with external partners, reducing turnaround time from 21 to 7 days.</p>
+  </div>
   
-  {{< project 
-      title="Analytics Automation Library" 
-      image="/images/project3.jpg" 
-      description="Developed internal libraries that automated repetitive data preparation tasks, making the analytics process 3x faster." 
-  >}}
-{{< /showcase >}}
+  <div class="project-card">
+    <img src="/images/project3.jpg" alt="Analytics Automation Library" class="project-image">
+    <h3 class="project-title">Analytics Automation Library</h3>
+    <p class="project-description">Developed internal libraries that automated repetitive data preparation tasks, making the analytics process 3x faster.</p>
+  </div>
+</div>
 
 ---
 
