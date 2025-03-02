@@ -9,7 +9,7 @@ showToc: false
 
 <link rel="stylesheet" href="/css/about-styles.css">
 
-{{< figure src="/images/profile-photo.jpg" alt="Denis Bogdanov" class="profile-image" >}}
+{{< figure src="/images/about_image.jpg" alt="Denis Bogdanov" class="profile-image" >}}
 
 # Hello, I'm Denis Bogdanov
 
