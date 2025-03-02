@@ -51,7 +51,7 @@ params:
     enabled: true
     title: "Denis Bogdanov"
     subtitle: "Welcome to my blog!"
-    imageUrl: "/images/logo.png"
+    imageUrl: "https://den-bogdanov.github.io/images/logo.png"
     imageWidth: 120
     imageHeight: 120
     imageTitle: Denis Bogdanov
