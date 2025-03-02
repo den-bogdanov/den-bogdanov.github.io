@@ -25,7 +25,7 @@ params:
   title: My Blog
   description: "Welcome to my personal blog"
   keywords: [Blog, Portfolio, PaperMod]
-  author: Your Name
+  author: Denis Bogdanov
   DateFormat: "January 2, 2006"
   defaultTheme: auto
   ShowReadingTime: true
@@ -49,12 +49,12 @@ params:
 
   profileMode:
     enabled: true
-    title: "Your Name"
+    title: "Denis Bogdanov"
     subtitle: "Welcome to my blog!"
-    imageUrl: "#" # Add your image URL here
+    imageUrl: "/images/logo.png"
     imageWidth: 120
     imageHeight: 120
-    imageTitle: my image
+    imageTitle: Denis Bogdanov
     buttons:
       - name: Posts
         url: posts
