@@ -1,6 +1,6 @@
 ---
 title: "Structured Outputs Sample Apps: Building Applications with OpenAI's Structured Data"
-date: 2024-01-15
+date: 2025-01-15
 draft: false
 tags: ["AI", "OpenAI", "Development", "Structured Data", "Applications"]
 categories: ["AI", "Development"]
