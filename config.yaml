@@ -2,8 +2,10 @@ baseURL: "https://den-bogdanov.github.io/"
 title: "My Blog"
 theme: PaperMod
 
-# Add canonifyURLs to fix image paths
+# URL handling settings
 canonifyURLs: true
+relativeURLs: false
+uglyURLs: false
 
 pagination:
   pagerSize: 5
