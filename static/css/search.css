@@ -43,21 +43,21 @@
     margin: 0;
     display: flex;
     flex-direction: column;
-    gap: 25px;
+    gap: 30px;
 }
 
 .search-result {
     background: var(--entry);
     border: 2px solid var(--border);
-    border-radius: 16px;
+    border-radius: 20px;
     overflow: hidden;
 }
 
 .search-result a {
     display: flex;
     align-items: center;
-    padding: 35px 40px;
-    height: 140px;
+    padding: 45px 50px;
+    height: 180px;
     color: var(--primary);
     text-decoration: none;
     transition: all 0.3s ease;
@@ -78,6 +78,7 @@
     line-height: 1.4;
     overflow-wrap: break-word;
     word-break: break-word;
+    max-width: 100%;
 }
 
 @media (max-width: 768px) {
@@ -91,8 +92,8 @@
     }
     
     .search-result a {
-        padding: 25px;
-        height: 100px;
+        padding: 35px;
+        height: 140px;
     }
     
     .search-result-title {
