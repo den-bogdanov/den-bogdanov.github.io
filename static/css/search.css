@@ -43,21 +43,21 @@
     margin: 0;
     display: flex;
     flex-direction: column;
-    gap: 12px;
+    gap: 20px;
 }
 
 .search-result {
     background: var(--entry);
     border: 1px solid var(--border);
-    border-radius: 8px;
+    border-radius: 12px;
     overflow: hidden;
 }
 
 .search-result a {
     display: flex;
     align-items: center;
-    padding: 20px;
-    height: 60px;
+    padding: 25px 30px;
+    height: 100px;
     color: var(--primary);
     text-decoration: none;
     transition: background-color 0.2s ease;
@@ -71,7 +71,7 @@
 
 .search-result-title {
     margin: 0;
-    font-size: 1.25em;
+    font-size: 1.4em;
     font-weight: 500;
     line-height: 1.4;
     overflow-wrap: break-word;
@@ -89,12 +89,12 @@
     }
     
     .search-result a {
-        padding: 15px;
-        height: 48px;
+        padding: 20px;
+        height: 80px;
     }
     
     .search-result-title {
-        font-size: 1.1em;
+        font-size: 1.2em;
         line-height: 1.3;
     }
 } 
