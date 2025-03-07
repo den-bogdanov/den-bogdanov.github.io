@@ -179,6 +179,6 @@ I'm also passionate about building data communities. I've organized weekly data 
 </div>
 
 <div class="cta-container">
-  <a href="/contact" class="cta-button">Let's Work Together</a>
-  <a href="/blog" class="cta-button secondary">Read My Blog</a>
+  <a href="mailto:denis.bogdanov.work@gmail.com" class="cta-button">Contact Me</a>
+  <a href="/posts" class="cta-button secondary">Read My Posts</a>
 </div>
