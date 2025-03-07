@@ -1,5 +1,5 @@
 baseURL: "https://den-bogdanov.github.io/"
-title: "My Blog"
+title: "The Neural Chronicle"
 theme: PaperMod
 
 # URL handling settings
@@ -27,7 +27,7 @@ markup:
 
 params:
   env: production
-  title: My Blog
+  title: The Neural Chronicle
   description: "Welcome to my personal blog"
   keywords: [Blog, Portfolio, PaperMod]
   author: Denis Bogdanov
@@ -68,11 +68,9 @@ params:
 
   socialIcons:
     - name: github
-      # url: "https://github.com/yourusername"
-    - name: twitter
-      # url: "https://twitter.com/yourusername"
+      url: "https://github.com/den-bogdanov"
     - name: linkedin
-      # url: "https://linkedin.com/in/yourusername"
+      url: "https://www.linkedin.com/in/denis-bogdanov-analyst"
 
 menu:
   main:
