@@ -65,13 +65,15 @@ function performSearch(query) {
 
 // Display search results
 function displayResults(results) {
+    // Clear previous results first
+    while (searchResults.firstChild) {
+        searchResults.removeChild(searchResults.firstChild);
+    }
+
     if (!Array.isArray(results) || results.length === 0) {
         showStatus('No results found');
         return;
     }
-
-    // Clear previous results
-    searchResults.innerHTML = '';
 
     // Create container for results
     const container = document.createElement('div');
