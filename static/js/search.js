@@ -5,8 +5,10 @@ const searchResults = document.getElementById('searchResults');
 let searchIndex = null;
 
 // Fetch the search index
+console.log('Fetching search index...');
 fetch('/search/index.json')
     .then(response => {
+        console.log('Response status:', response.status);
         if (!response.ok) {
             throw new Error(`Failed to load search index: ${response.status} ${response.statusText}`);
         }
@@ -19,16 +21,17 @@ fetch('/search/index.json')
         }
         searchIndex = data.posts;
         console.log('Search index loaded successfully with', searchIndex.length, 'items');
+        searchResults.innerHTML = '<li class="search-status">Search index loaded. Start typing to search.</li>';
     })
     .catch(error => {
         console.error('Error loading search index:', error);
-        searchResults.innerHTML = `<li>Error loading search index: ${error.message}</li>`;
+        searchResults.innerHTML = `<li class="search-status">Error loading search index: ${error.message}</li>`;
     });
 
 // Search function
 function performSearch(query) {
     if (!searchIndex) {
-        searchResults.innerHTML = '<li>Search index not loaded yet. Please try again.</li>';
+        searchResults.innerHTML = '<li class="search-status">Search index not loaded yet. Please try again.</li>';
         return;
     }
 
@@ -45,12 +48,13 @@ function displayResults(results) {
     searchResults.innerHTML = '';
 
     if (results.length === 0) {
-        searchResults.innerHTML = '<li>No results found</li>';
+        searchResults.innerHTML = '<li class="search-status">No results found</li>';
         return;
     }
 
     results.forEach(result => {
         const li = document.createElement('li');
+        li.className = 'search-result';
         li.innerHTML = `
             <a href="${result.permalink}">
                 <h3>${result.title}</h3>
@@ -68,7 +72,7 @@ searchInput.addEventListener('input', (e) => {
     if (query.length > 0) {
         performSearch(query);
     } else {
-        searchResults.innerHTML = '';
+        searchResults.innerHTML = '<li class="search-status">Start typing to search...</li>';
     }
 });
 
@@ -76,7 +80,7 @@ searchInput.addEventListener('input', (e) => {
 searchInput.addEventListener('keydown', (e) => {
     if (e.key === 'ArrowDown') {
         e.preventDefault();
-        const firstResult = searchResults.firstElementChild;
+        const firstResult = searchResults.querySelector('.search-result');
         if (firstResult) {
             firstResult.focus();
         }
@@ -87,13 +91,13 @@ searchResults.addEventListener('keydown', (e) => {
     if (e.key === 'ArrowDown') {
         e.preventDefault();
         const nextResult = e.target.nextElementSibling;
-        if (nextResult) {
+        if (nextResult && nextResult.classList.contains('search-result')) {
             nextResult.focus();
         }
     } else if (e.key === 'ArrowUp') {
         e.preventDefault();
         const prevResult = e.target.previousElementSibling;
-        if (prevResult) {
+        if (prevResult && prevResult.classList.contains('search-result')) {
             prevResult.focus();
         }
     }

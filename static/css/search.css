@@ -1,77 +1,95 @@
 #searchbox {
-    max-width: 600px;
-    margin: 2rem auto;
-    padding: 0 1rem;
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 20px;
 }
 
 #searchInput {
     width: 100%;
-    padding: 0.8rem 1rem;
-    font-size: 1.1rem;
-    border: 2px solid #e0e0e0;
-    border-radius: 8px;
-    outline: none;
+    padding: 12px 20px;
+    margin: 8px 0;
+    box-sizing: border-box;
+    border: 2px solid #ccc;
+    border-radius: 4px;
+    font-size: 16px;
     transition: border-color 0.3s ease;
 }
 
 #searchInput:focus {
-    border-color: #3498db;
+    outline: none;
+    border-color: #007bff;
 }
 
 #searchResults {
     list-style: none;
     padding: 0;
-    margin: 1rem 0;
+    margin: 0;
 }
 
 #searchResults li {
-    margin: 1rem 0;
-    padding: 1rem;
-    border: 1px solid #e0e0e0;
-    border-radius: 8px;
-    transition: all 0.3s ease;
+    margin: 10px 0;
+    padding: 10px;
+    border-radius: 4px;
+    transition: background-color 0.2s ease;
 }
 
-#searchResults li:hover,
-#searchResults li:focus-within {
-    border-color: #3498db;
-    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+#searchResults .search-status {
+    color: #666;
+    font-style: italic;
+    padding: 10px;
+    text-align: center;
 }
 
-#searchResults a {
+#searchResults .search-result {
+    background-color: #f8f9fa;
+    border: 1px solid #e9ecef;
+}
+
+#searchResults .search-result:hover {
+    background-color: #e9ecef;
+}
+
+#searchResults .search-result a {
     text-decoration: none;
     color: inherit;
     display: block;
 }
 
 #searchResults h3 {
-    margin: 0 0 0.5rem 0;
-    color: #2c3e50;
+    margin: 0 0 8px 0;
+    color: #007bff;
 }
 
 #searchResults p {
-    margin: 0 0 0.5rem 0;
-    color: #666;
-    font-size: 0.9rem;
+    margin: 8px 0;
+    color: #495057;
 }
 
 #searchResults small {
-    color: #999;
-    font-size: 0.8rem;
+    color: #6c757d;
+    font-size: 0.875em;
 }
 
-/* Responsive adjustments */
+#searchResults .search-result:focus {
+    outline: 2px solid #007bff;
+    outline-offset: 2px;
+}
+
 @media (max-width: 768px) {
     #searchbox {
-        margin: 1rem auto;
+        padding: 10px;
     }
-
+    
     #searchInput {
-        font-size: 1rem;
-        padding: 0.6rem 0.8rem;
+        font-size: 14px;
+        padding: 8px 16px;
     }
-
-    #searchResults li {
-        padding: 0.8rem;
+    
+    #searchResults h3 {
+        font-size: 1.1em;
+    }
+    
+    #searchResults p {
+        font-size: 0.9em;
     }
 } 
