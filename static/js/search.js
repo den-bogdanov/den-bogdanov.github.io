@@ -43,7 +43,6 @@ function showStatus(message) {
 // Search function
 function performSearch(query) {
     console.log('Searching for:', query);
-    console.log('Search index:', searchIndex);
     
     if (!searchIndex) {
         showStatus('Search index not loaded yet. Please try again.');
@@ -71,25 +70,41 @@ function displayResults(results) {
         return;
     }
 
-    console.log('Displaying results:', results);
-    const resultsHtml = results.map(result => {
-        const date = new Date(result.date).toLocaleDateString('en-US', {
+    // Clear previous results
+    searchResults.innerHTML = '';
+
+    // Create container for results
+    const container = document.createElement('div');
+    container.className = 'search-results-container';
+
+    // Add each result
+    results.forEach(result => {
+        const resultElement = document.createElement('div');
+        resultElement.className = 'search-result';
+
+        const link = document.createElement('a');
+        link.href = result.permalink;
+
+        const title = document.createElement('h3');
+        title.textContent = result.title;
+
+        const date = document.createElement('time');
+        date.setAttribute('datetime', result.date);
+        date.textContent = new Date(result.date).toLocaleDateString('en-US', {
             year: 'numeric',
             month: 'long',
             day: 'numeric'
         });
-        return `
-            <div class="search-result">
-                <a href="${result.permalink}">
-                    <h3>${result.title}</h3>
-                    <time datetime="${result.date}">${date}</time>
-                </a>
-            </div>
-        `;
-    }).join('');
 
-    searchResults.innerHTML = resultsHtml;
-    console.log('Results HTML:', resultsHtml);
+        link.appendChild(title);
+        link.appendChild(date);
+        resultElement.appendChild(link);
+        container.appendChild(resultElement);
+    });
+
+    // Add results to the page
+    searchResults.appendChild(container);
+    console.log('Results displayed:', results.length);
 }
 
 // Event listeners
@@ -144,7 +159,4 @@ searchResults.addEventListener('keydown', (e) => {
 });
 
 // Initialize search
-document.addEventListener('DOMContentLoaded', () => {
-    console.log('Initializing search...');
-    fetchSearchIndex();
-}); 
+fetchSearchIndex(); 
