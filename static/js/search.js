@@ -6,15 +6,27 @@ let searchIndex = null;
 
 // Fetch the search index
 fetch('/index.json')
-    .then(response => response.json())
-    .then(data => {
-        searchIndex = data;
+    .then(response => {
+        if (!response.ok) {
+            throw new Error('Failed to load search index');
+        }
+        return response.json();
     })
-    .catch(error => console.error('Error loading search index:', error));
+    .then(data => {
+        searchIndex = data.posts;
+        console.log('Search index loaded successfully');
+    })
+    .catch(error => {
+        console.error('Error loading search index:', error);
+        searchResults.innerHTML = '<li>Error loading search index. Please try again later.</li>';
+    });
 
 // Search function
 function performSearch(query) {
-    if (!searchIndex) return;
+    if (!searchIndex) {
+        searchResults.innerHTML = '<li>Search index not loaded yet. Please try again.</li>';
+        return;
+    }
 
     const results = searchIndex.filter(item => {
         const searchContent = (item.title + ' ' + item.content).toLowerCase();
@@ -39,6 +51,7 @@ function displayResults(results) {
             <a href="${result.permalink}">
                 <h3>${result.title}</h3>
                 <p>${result.summary}</p>
+                <small>${result.date}</small>
             </a>
         `;
         searchResults.appendChild(li);
