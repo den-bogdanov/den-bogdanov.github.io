@@ -1,7 +1,7 @@
 ---
 title: "Search"
 layout: "search"
-summary: "Search through the blog posts"
+summary: "Search through all posts"
 placeholder: "Type to search posts..."
 outputs:
   - html
