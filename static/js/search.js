@@ -66,29 +66,30 @@ function performSearch(query) {
 
 // Display search results
 function displayResults(results) {
-    if (results.length === 0) {
+    if (!Array.isArray(results) || results.length === 0) {
         showStatus('No results found');
         return;
     }
 
-    searchResults.innerHTML = '';
-    results.forEach(result => {
-        const div = document.createElement('div');
-        div.className = 'search-result';
+    console.log('Displaying results:', results);
+    const resultsHtml = results.map(result => {
         const date = new Date(result.date).toLocaleDateString('en-US', {
             year: 'numeric',
             month: 'long',
             day: 'numeric'
         });
-        div.innerHTML = `
-            <a href="${result.permalink}">
-                <h3>${result.title}</h3>
-                <time datetime="${result.date}">${date}</time>
-            </a>
+        return `
+            <div class="search-result">
+                <a href="${result.permalink}">
+                    <h3>${result.title}</h3>
+                    <time datetime="${result.date}">${date}</time>
+                </a>
+            </div>
         `;
-        searchResults.appendChild(div);
-    });
-    console.log('Displayed results:', results.length);
+    }).join('');
+
+    searchResults.innerHTML = resultsHtml;
+    console.log('Results HTML:', resultsHtml);
 }
 
 // Event listeners
