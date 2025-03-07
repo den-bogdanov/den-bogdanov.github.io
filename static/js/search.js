@@ -7,14 +7,24 @@ let searchIndex = null;
 // Fetch the search index
 async function fetchSearchIndex() {
     try {
+        showStatus('Loading search index...');
         const response = await fetch('/search/index.json');
+        console.log('Response:', response.status, response.statusText);
+        
         if (!response.ok) {
             throw new Error(`HTTP error! status: ${response.status}`);
         }
-        const data = await response.json();
-        if (!data || !Array.isArray(data.posts)) {
+        
+        const text = await response.text();
+        console.log('Raw response:', text);
+        
+        const data = JSON.parse(text);
+        console.log('Parsed data:', data);
+        
+        if (!data || !data.posts) {
             throw new Error('Invalid search index format');
         }
+        
         searchIndex = data.posts;
         console.log('Search index loaded with', searchIndex.length, 'posts');
         showStatus('Start typing to search...');
@@ -26,11 +36,15 @@ async function fetchSearchIndex() {
 
 // Show status message
 function showStatus(message) {
+    console.log('Status:', message);
     searchResults.innerHTML = `<div class="search-status">${message}</div>`;
 }
 
 // Search function
 function performSearch(query) {
+    console.log('Searching for:', query);
+    console.log('Search index:', searchIndex);
+    
     if (!searchIndex) {
         showStatus('Search index not loaded yet. Please try again.');
         return;
@@ -38,10 +52,15 @@ function performSearch(query) {
 
     query = query.toLowerCase();
     const results = searchIndex
-        .filter(post => post.title.toLowerCase().includes(query))
+        .filter(post => {
+            const titleMatch = post.title.toLowerCase().includes(query);
+            console.log('Checking:', post.title, 'Match:', titleMatch);
+            return titleMatch;
+        })
         .sort((a, b) => new Date(b.date) - new Date(a.date))
         .slice(0, 5);
 
+    console.log('Found results:', results);
     displayResults(results);
 }
 
@@ -69,6 +88,7 @@ function displayResults(results) {
         `;
         searchResults.appendChild(div);
     });
+    console.log('Displayed results:', results.length);
 }
 
 // Event listeners
@@ -123,4 +143,7 @@ searchResults.addEventListener('keydown', (e) => {
 });
 
 // Initialize search
-fetchSearchIndex(); 
+document.addEventListener('DOMContentLoaded', () => {
+    console.log('Initializing search...');
+    fetchSearchIndex();
+}); 
