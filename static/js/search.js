@@ -14,10 +14,10 @@ fetch('/search/index.json')
     })
     .then(data => {
         console.log('Received data:', data);
-        if (!data || !Array.isArray(data)) {
+        if (!data || !data.posts || !Array.isArray(data.posts)) {
             throw new Error('Invalid search index format');
         }
-        searchIndex = data;
+        searchIndex = data.posts;
         console.log('Search index loaded successfully with', searchIndex.length, 'items');
     })
     .catch(error => {

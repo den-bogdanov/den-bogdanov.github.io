@@ -33,16 +33,18 @@
 {{- end }}{{/* end main */}}
 
 {{- define "json" -}}
-[
-    {{- range $index, $post := .Site.RegularPages -}}
-    {{- if $index }}, {{ end -}}
-    {
-        "title": {{ .Title | jsonify }},
-        "content": {{ .Plain | jsonify }},
-        "permalink": {{ .Permalink | jsonify }},
-        "summary": {{ .Summary | jsonify }},
-        "date": {{ .Date.Format "2006-01-02" | jsonify }}
-    }
-    {{- end -}}
-]
+{
+    "posts": [
+        {{- range $index, $post := .Site.RegularPages -}}
+        {{- if $index }}, {{ end -}}
+        {
+            "title": {{ .Title | jsonify }},
+            "content": {{ .Plain | jsonify }},
+            "permalink": {{ .Permalink | jsonify }},
+            "summary": {{ .Summary | jsonify }},
+            "date": {{ .Date.Format "2006-01-02" | jsonify }}
+        }
+        {{- end -}}
+    ]
+}
 {{- end -}} 
