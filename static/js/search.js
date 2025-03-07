@@ -51,15 +51,19 @@ function displayResults(results) {
         return;
     }
 
-    const html = results.map(result => `
-        <div class="search-result">
-            <a href="${result.permalink}">
-                <span>${result.title}</span>
-            </a>
-        </div>
-    `).join('');
+    const html = `
+        <ul class="search-results-list">
+            ${results.map(result => `
+                <li class="search-result">
+                    <a href="${result.permalink}">
+                        <h3 class="search-result-title">${result.title}</h3>
+                    </a>
+                </li>
+            `).join('')}
+        </ul>
+    `;
 
-    searchResults.innerHTML = `<div class="search-results-container">${html}</div>`;
+    searchResults.innerHTML = html;
 }
 
 // Event listeners
@@ -79,10 +83,9 @@ searchInput.addEventListener('input', (e) => {
 searchInput.addEventListener('keydown', (e) => {
     if (e.key === 'ArrowDown') {
         e.preventDefault();
-        const firstResult = searchResults.querySelector('.search-result');
+        const firstResult = searchResults.querySelector('.search-result a');
         if (firstResult) {
-            const link = firstResult.querySelector('a');
-            if (link) link.focus();
+            firstResult.focus();
         }
     }
 });
@@ -90,25 +93,21 @@ searchInput.addEventListener('keydown', (e) => {
 searchResults.addEventListener('keydown', (e) => {
     if (!e.target.closest('a')) return;
     
+    const currentResult = e.target.closest('.search-result');
+    
     if (e.key === 'ArrowDown') {
         e.preventDefault();
-        const currentResult = e.target.closest('.search-result');
         const nextResult = currentResult.nextElementSibling;
         if (nextResult) {
-            const link = nextResult.querySelector('a');
-            if (link) link.focus();
+            nextResult.querySelector('a').focus();
         }
     } else if (e.key === 'ArrowUp') {
         e.preventDefault();
-        const currentResult = e.target.closest('.search-result');
-        if (currentResult === currentResult.parentElement.firstElementChild) {
-            searchInput.focus();
-            return;
-        }
         const prevResult = currentResult.previousElementSibling;
         if (prevResult) {
-            const link = prevResult.querySelector('a');
-            if (link) link.focus();
+            prevResult.querySelector('a').focus();
+        } else {
+            searchInput.focus();
         }
     }
 });
