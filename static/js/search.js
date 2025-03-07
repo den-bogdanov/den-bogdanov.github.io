@@ -5,20 +5,24 @@ const searchResults = document.getElementById('searchResults');
 let searchIndex = null;
 
 // Fetch the search index
-fetch('/index.json')
+fetch('/search/index.json')
     .then(response => {
         if (!response.ok) {
-            throw new Error('Failed to load search index');
+            throw new Error(`Failed to load search index: ${response.status} ${response.statusText}`);
         }
         return response.json();
     })
     .then(data => {
-        searchIndex = data.posts;
-        console.log('Search index loaded successfully');
+        console.log('Received data:', data);
+        if (!data || !Array.isArray(data)) {
+            throw new Error('Invalid search index format');
+        }
+        searchIndex = data;
+        console.log('Search index loaded successfully with', searchIndex.length, 'items');
     })
     .catch(error => {
         console.error('Error loading search index:', error);
-        searchResults.innerHTML = '<li>Error loading search index. Please try again later.</li>';
+        searchResults.innerHTML = `<li>Error loading search index: ${error.message}</li>`;
     });
 
 // Search function
