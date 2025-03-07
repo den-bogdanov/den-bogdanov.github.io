@@ -27,6 +27,7 @@
 
 #searchResults {
     margin-top: 20px;
+    position: relative;
 }
 
 .search-status {
@@ -41,24 +42,31 @@
     border: 1px solid var(--border);
     border-radius: 8px;
     overflow: hidden;
+    position: absolute;
+    left: 0;
+    right: 0;
+    z-index: 100;
 }
 
 .search-result {
-    border-bottom: 1px solid var(--border);
+    position: relative;
+    background: var(--entry);
 }
 
-.search-result:last-child {
-    border-bottom: none;
+.search-result + .search-result {
+    border-top: 1px solid var(--border);
 }
 
 .search-result a {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 15px;
+    padding: 12px 15px;
     color: var(--primary);
     text-decoration: none;
     transition: background-color 0.2s ease;
+    position: relative;
+    z-index: 1;
 }
 
 .search-result a:hover,
@@ -91,7 +99,7 @@
     }
     
     .search-result a {
-        padding: 12px 15px;
+        padding: 10px 15px;
     }
     
     .search-result h3 {

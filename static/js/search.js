@@ -104,7 +104,6 @@ function displayResults(results) {
 
     // Add results to the page
     searchResults.appendChild(container);
-    console.log('Results displayed:', results.length);
 }
 
 // Event listeners
@@ -158,5 +157,13 @@ searchResults.addEventListener('keydown', (e) => {
     }
 });
 
+// Close search results when clicking outside
+document.addEventListener('click', (e) => {
+    if (!searchResults.contains(e.target) && !searchInput.contains(e.target)) {
+        showStatus('Start typing to search...');
+    }
+});
+
 // Initialize search
 fetchSearchIndex(); 
+}); 
