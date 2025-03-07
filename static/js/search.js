@@ -21,17 +21,22 @@ fetch('/search/index.json')
         }
         searchIndex = data.posts;
         console.log('Search index loaded successfully with', searchIndex.length, 'items');
-        searchResults.innerHTML = '<li class="search-status">Search index loaded. Start typing to search.</li>';
+        showStatus('Start typing to search...');
     })
     .catch(error => {
         console.error('Error loading search index:', error);
-        searchResults.innerHTML = `<li class="search-status">Error loading search index: ${error.message}</li>`;
+        showStatus(`Error loading search index: ${error.message}`);
     });
+
+// Show status message
+function showStatus(message) {
+    searchResults.innerHTML = `<div class="search-status">${message}</div>`;
+}
 
 // Search function
 function performSearch(query) {
     if (!searchIndex) {
-        searchResults.innerHTML = '<li class="search-status">Search index not loaded yet. Please try again.</li>';
+        showStatus('Search index not loaded yet. Please try again.');
         return;
     }
 
@@ -45,24 +50,23 @@ function performSearch(query) {
 
 // Display search results
 function displayResults(results) {
-    searchResults.innerHTML = '';
-
     if (results.length === 0) {
-        searchResults.innerHTML = '<li class="search-status">No results found</li>';
+        showStatus('No results found');
         return;
     }
 
+    searchResults.innerHTML = '';
     results.forEach(result => {
-        const li = document.createElement('li');
-        li.className = 'search-result';
-        li.innerHTML = `
+        const article = document.createElement('article');
+        article.className = 'search-result';
+        article.innerHTML = `
             <a href="${result.permalink}">
                 <h3>${result.title}</h3>
                 <p>${result.summary}</p>
                 <small>${result.date}</small>
             </a>
         `;
-        searchResults.appendChild(li);
+        searchResults.appendChild(article);
     });
 }
 
@@ -72,7 +76,7 @@ searchInput.addEventListener('input', (e) => {
     if (query.length > 0) {
         performSearch(query);
     } else {
-        searchResults.innerHTML = '<li class="search-status">Start typing to search...</li>';
+        showStatus('Start typing to search...');
     }
 });
 
@@ -82,23 +86,34 @@ searchInput.addEventListener('keydown', (e) => {
         e.preventDefault();
         const firstResult = searchResults.querySelector('.search-result');
         if (firstResult) {
-            firstResult.focus();
+            const link = firstResult.querySelector('a');
+            if (link) link.focus();
         }
     }
 });
 
 searchResults.addEventListener('keydown', (e) => {
+    if (!e.target.closest('a')) return;
+    
     if (e.key === 'ArrowDown') {
         e.preventDefault();
-        const nextResult = e.target.nextElementSibling;
-        if (nextResult && nextResult.classList.contains('search-result')) {
-            nextResult.focus();
+        const currentResult = e.target.closest('.search-result');
+        const nextResult = currentResult.nextElementSibling;
+        if (nextResult) {
+            const link = nextResult.querySelector('a');
+            if (link) link.focus();
         }
     } else if (e.key === 'ArrowUp') {
         e.preventDefault();
-        const prevResult = e.target.previousElementSibling;
-        if (prevResult && prevResult.classList.contains('search-result')) {
-            prevResult.focus();
+        const currentResult = e.target.closest('.search-result');
+        if (currentResult === currentResult.parentElement.firstElementChild) {
+            searchInput.focus();
+            return;
+        }
+        const prevResult = currentResult.previousElementSibling;
+        if (prevResult) {
+            const link = prevResult.querySelector('a');
+            if (link) link.focus();
         }
     }
 }); 
