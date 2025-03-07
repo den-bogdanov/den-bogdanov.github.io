@@ -50,25 +50,25 @@
     background: var(--entry);
     border: 2px solid var(--border);
     border-radius: 20px;
-    overflow: hidden;
-    margin: 4px;
+    overflow: visible;
+    position: relative;
 }
 
 .search-result a {
-    display: block;
+    display: flex;
+    align-items: center;
     padding: 35px 40px;
-    min-height: 180px;
-    height: auto;
     color: var(--primary);
     text-decoration: none;
     transition: all 0.3s ease;
+    position: relative;
+    z-index: 1;
 }
 
 .search-result a:hover,
 .search-result a:focus {
     background-color: var(--code-bg);
     outline: none;
-    transform: none;
     box-shadow: inset 0 0 0 2px var(--primary);
 }
 
@@ -79,7 +79,7 @@
     line-height: 1.4;
     overflow-wrap: break-word;
     word-break: break-word;
-    hyphens: auto;
+    width: 100%;
 }
 
 @media (max-width: 768px) {
