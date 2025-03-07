@@ -54,9 +54,10 @@
 }
 
 .search-result a {
-    display: block;
+    display: flex;
+    align-items: center;
     padding: 20px;
-    min-height: 30px;
+    height: 60px;
     color: var(--primary);
     text-decoration: none;
     transition: background-color 0.2s ease;
@@ -89,7 +90,7 @@
     
     .search-result a {
         padding: 15px;
-        min-height: 24px;
+        height: 48px;
     }
     
     .search-result-title {
