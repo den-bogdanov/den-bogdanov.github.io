@@ -1,9 +1,9 @@
 ---
 title: "Search"
 layout: "search"
-summary: "Search through all posts"
-placeholder: "Type to search posts..."
+url: "/search"
+description: "Search through blog posts"
 outputs:
-  - html
-  - json
+    - HTML
+    - JSON
 --- 

@@ -5,54 +5,43 @@ const searchResults = document.getElementById('searchResults');
 let searchIndex = null;
 
 // Fetch the search index
-console.log('Fetching search index...');
-fetch('/search/index.json')
-    .then(response => {
-        console.log('Response status:', response.status);
+async function fetchSearchIndex() {
+    try {
+        const response = await fetch('/search/index.json');
         if (!response.ok) {
-            throw new Error(`Failed to load search index: ${response.status} ${response.statusText}`);
+            throw new Error(`HTTP error! status: ${response.status}`);
         }
-        return response.json();
-    })
-    .then(data => {
-        console.log('Received data:', data);
-        if (!data || !data.posts || !Array.isArray(data.posts)) {
+        const data = await response.json();
+        if (!data || !Array.isArray(data.posts)) {
             throw new Error('Invalid search index format');
         }
         searchIndex = data.posts;
-        console.log('Search index loaded successfully with', searchIndex.length, 'items');
+        console.log('Search index loaded with', searchIndex.length, 'posts');
         showStatus('Start typing to search...');
-    })
-    .catch(error => {
+    } catch (error) {
         console.error('Error loading search index:', error);
-        showStatus(`Error loading search index: ${error.message}`);
-    });
+        showStatus('Failed to load search index. Please refresh the page.');
+    }
+}
 
 // Show status message
 function showStatus(message) {
-    console.log('Status:', message);
     searchResults.innerHTML = `<div class="search-status">${message}</div>`;
 }
 
 // Search function
 function performSearch(query) {
-    console.log('Performing search for:', query);
-    
     if (!searchIndex) {
-        console.error('Search index not loaded');
         showStatus('Search index not loaded yet. Please try again.');
         return;
     }
 
+    query = query.toLowerCase();
     const results = searchIndex
-        .filter(item => {
-            const searchContent = (item.title + ' ' + item.content).toLowerCase();
-            return searchContent.includes(query.toLowerCase());
-        })
+        .filter(post => post.title.toLowerCase().includes(query))
         .sort((a, b) => new Date(b.date) - new Date(a.date))
         .slice(0, 5);
 
-    console.log('Found results:', results.length);
     displayResults(results);
 }
 
@@ -80,7 +69,6 @@ function displayResults(results) {
         `;
         searchResults.appendChild(div);
     });
-    console.log('Displayed results:', results.length);
 }
 
 // Event listeners
@@ -90,7 +78,6 @@ searchInput.addEventListener('input', (e) => {
     clearTimeout(debounceTimeout);
     
     if (query.length > 0) {
-        console.log('Search input:', query);
         debounceTimeout = setTimeout(() => performSearch(query), 300);
     } else {
         showStatus('Start typing to search...');
@@ -133,4 +120,7 @@ searchResults.addEventListener('keydown', (e) => {
             if (link) link.focus();
         }
     }
-}); 
+});
+
+// Initialize search
+fetchSearchIndex(); 
