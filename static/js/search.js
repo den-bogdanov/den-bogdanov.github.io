@@ -30,12 +30,16 @@ fetch('/search/index.json')
 
 // Show status message
 function showStatus(message) {
+    console.log('Status:', message);
     searchResults.innerHTML = `<div class="search-status">${message}</div>`;
 }
 
 // Search function
 function performSearch(query) {
+    console.log('Performing search for:', query);
+    
     if (!searchIndex) {
+        console.error('Search index not loaded');
         showStatus('Search index not loaded yet. Please try again.');
         return;
     }
@@ -48,6 +52,7 @@ function performSearch(query) {
         .sort((a, b) => new Date(b.date) - new Date(a.date))
         .slice(0, 5);
 
+    console.log('Found results:', results.length);
     displayResults(results);
 }
 
@@ -62,14 +67,20 @@ function displayResults(results) {
     results.forEach(result => {
         const div = document.createElement('div');
         div.className = 'search-result';
+        const date = new Date(result.date).toLocaleDateString('en-US', {
+            year: 'numeric',
+            month: 'long',
+            day: 'numeric'
+        });
         div.innerHTML = `
             <a href="${result.permalink}">
                 <h3>${result.title}</h3>
-                <time>${new Date(result.date).toLocaleDateString()}</time>
+                <time datetime="${result.date}">${date}</time>
             </a>
         `;
         searchResults.appendChild(div);
     });
+    console.log('Displayed results:', results.length);
 }
 
 // Event listeners
@@ -79,6 +90,7 @@ searchInput.addEventListener('input', (e) => {
     clearTimeout(debounceTimeout);
     
     if (query.length > 0) {
+        console.log('Search input:', query);
         debounceTimeout = setTimeout(() => performSearch(query), 300);
     } else {
         showStatus('Start typing to search...');
