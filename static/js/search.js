@@ -40,10 +40,13 @@ function performSearch(query) {
         return;
     }
 
-    const results = searchIndex.filter(item => {
-        const searchContent = (item.title + ' ' + item.content).toLowerCase();
-        return searchContent.includes(query.toLowerCase());
-    });
+    const results = searchIndex
+        .filter(item => {
+            const searchContent = (item.title + ' ' + item.content).toLowerCase();
+            return searchContent.includes(query.toLowerCase());
+        })
+        .sort((a, b) => new Date(b.date) - new Date(a.date))
+        .slice(0, 5);
 
     displayResults(results);
 }
@@ -57,24 +60,26 @@ function displayResults(results) {
 
     searchResults.innerHTML = '';
     results.forEach(result => {
-        const article = document.createElement('article');
-        article.className = 'search-result';
-        article.innerHTML = `
+        const div = document.createElement('div');
+        div.className = 'search-result';
+        div.innerHTML = `
             <a href="${result.permalink}">
                 <h3>${result.title}</h3>
-                <p>${result.summary}</p>
-                <small>${result.date}</small>
+                <time>${new Date(result.date).toLocaleDateString()}</time>
             </a>
         `;
-        searchResults.appendChild(article);
+        searchResults.appendChild(div);
     });
 }
 
 // Event listeners
+let debounceTimeout;
 searchInput.addEventListener('input', (e) => {
     const query = e.target.value.trim();
+    clearTimeout(debounceTimeout);
+    
     if (query.length > 0) {
-        performSearch(query);
+        debounceTimeout = setTimeout(() => performSearch(query), 300);
     } else {
         showStatus('Start typing to search...');
     }
