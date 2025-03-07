@@ -165,11 +165,11 @@ I'm also passionate about building data communities. I've organized weekly data 
     <span>📧 denis.bogdanov.work@gmail.com</span>
   </a>
   
-  <a href="https://linkedin.com/in/yourprofile" class="connect-item">
-    <span>🔗 linkedin.com/in/yourprofile</span>
+  <a href="https://www.linkedin.com/in/denis-bogdanov-analyst" class="connect-item">
+    <span>🔗 LinkedIn</span>
   </a>
   
-  <a href="https://github.com/yourusername" class="connect-item">
+  <a href="https://github.com/den-bogdanov" class="connect-item">
     <span>💻 GitHub</span>
   </a>
   
