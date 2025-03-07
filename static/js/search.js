@@ -164,6 +164,7 @@ document.addEventListener('click', (e) => {
     }
 });
 
-// Initialize search
-fetchSearchIndex(); 
+// Initialize search when DOM is ready
+document.addEventListener('DOMContentLoaded', () => {
+    fetchSearchIndex();
 }); 
