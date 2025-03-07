@@ -27,6 +27,9 @@
 
 #searchResults {
     margin-top: 30px;
+    max-width: 800px;
+    margin-left: auto;
+    margin-right: auto;
 }
 
 .search-status {
@@ -39,37 +42,50 @@
 
 .search-results-list {
     list-style: none;
-    padding: 0;
+    padding: 0 20px;
     margin: 0;
     display: flex;
     flex-direction: column;
-    gap: 40px;
+    gap: 30px;
+    max-height: 680px;
+    overflow-y: auto;
+    scrollbar-width: thin;
+    scrollbar-color: var(--border) var(--entry);
+}
+
+.search-results-list::-webkit-scrollbar {
+    width: 8px;
+}
+
+.search-results-list::-webkit-scrollbar-track {
+    background: var(--entry);
+    border-radius: 4px;
+}
+
+.search-results-list::-webkit-scrollbar-thumb {
+    background: var(--border);
+    border-radius: 4px;
+}
+
+.search-results-list::-webkit-scrollbar-thumb:hover {
+    background: var(--primary);
 }
 
 .search-result {
     background: var(--entry);
     border: 2px solid var(--border);
     border-radius: 20px;
-    overflow: visible;
-    position: relative;
+    overflow: hidden;
+    min-height: 180px;
 }
 
 .search-result a {
-    display: flex;
-    align-items: center;
+    display: block;
     padding: 35px 40px;
+    height: 100%;
     color: var(--primary);
     text-decoration: none;
     transition: all 0.3s ease;
-    position: relative;
-    z-index: 1;
-}
-
-.search-result a:hover,
-.search-result a:focus {
-    background-color: var(--code-bg);
-    outline: none;
-    box-shadow: inset 0 0 0 2px var(--primary);
 }
 
 .search-result-title {
@@ -79,7 +95,6 @@
     line-height: 1.4;
     overflow-wrap: break-word;
     word-break: break-word;
-    width: 100%;
 }
 
 @media (max-width: 768px) {
@@ -93,16 +108,17 @@
     }
     
     .search-results-list {
-        gap: 30px;
+        max-height: 520px;
+        padding: 0 10px;
+        gap: 20px;
     }
     
     .search-result {
-        margin: 2px;
+        min-height: 140px;
     }
     
     .search-result a {
         padding: 25px 30px;
-        min-height: 140px;
     }
     
     .search-result-title {
