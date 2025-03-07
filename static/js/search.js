@@ -7,26 +7,15 @@ let searchIndex = null;
 // Fetch the search index
 async function fetchSearchIndex() {
     try {
-        showStatus('Loading search index...');
         const response = await fetch('/search/index.json');
-        console.log('Response:', response.status, response.statusText);
-        
         if (!response.ok) {
             throw new Error(`HTTP error! status: ${response.status}`);
         }
-        
-        const text = await response.text();
-        console.log('Raw response:', text);
-        
-        const data = JSON.parse(text);
-        console.log('Parsed data:', data);
-        
+        const data = await response.json();
         if (!data || !data.posts) {
             throw new Error('Invalid search index format');
         }
-        
         searchIndex = data.posts;
-        console.log('Search index loaded with', searchIndex.length, 'posts');
         showStatus('Start typing to search...');
     } catch (error) {
         console.error('Error loading search index:', error);
@@ -36,14 +25,11 @@ async function fetchSearchIndex() {
 
 // Show status message
 function showStatus(message) {
-    console.log('Status:', message);
     searchResults.innerHTML = `<div class="search-status">${message}</div>`;
 }
 
 // Search function
 function performSearch(query) {
-    console.log('Searching for:', query);
-    
     if (!searchIndex) {
         showStatus('Search index not loaded yet. Please try again.');
         return;
@@ -51,61 +37,29 @@ function performSearch(query) {
 
     query = query.toLowerCase();
     const results = searchIndex
-        .filter(post => {
-            const titleMatch = post.title.toLowerCase().includes(query);
-            console.log('Checking:', post.title, 'Match:', titleMatch);
-            return titleMatch;
-        })
+        .filter(post => post.title.toLowerCase().includes(query))
         .sort((a, b) => new Date(b.date) - new Date(a.date))
         .slice(0, 5);
 
-    console.log('Found results:', results);
     displayResults(results);
 }
 
 // Display search results
 function displayResults(results) {
-    // Clear previous results first
-    while (searchResults.firstChild) {
-        searchResults.removeChild(searchResults.firstChild);
-    }
-
     if (!Array.isArray(results) || results.length === 0) {
         showStatus('No results found');
         return;
     }
 
-    // Create container for results
-    const container = document.createElement('div');
-    container.className = 'search-results-container';
+    const html = results.map(result => `
+        <div class="search-result">
+            <a href="${result.permalink}">
+                <span>${result.title}</span>
+            </a>
+        </div>
+    `).join('');
 
-    // Add each result
-    results.forEach(result => {
-        const resultElement = document.createElement('div');
-        resultElement.className = 'search-result';
-
-        const link = document.createElement('a');
-        link.href = result.permalink;
-
-        const title = document.createElement('h3');
-        title.textContent = result.title;
-
-        const date = document.createElement('time');
-        date.setAttribute('datetime', result.date);
-        date.textContent = new Date(result.date).toLocaleDateString('en-US', {
-            year: 'numeric',
-            month: 'long',
-            day: 'numeric'
-        });
-
-        link.appendChild(title);
-        link.appendChild(date);
-        resultElement.appendChild(link);
-        container.appendChild(resultElement);
-    });
-
-    // Add results to the page
-    searchResults.appendChild(container);
+    searchResults.innerHTML = `<div class="search-results-container">${html}</div>`;
 }
 
 // Event listeners
@@ -166,7 +120,5 @@ document.addEventListener('click', (e) => {
     }
 });
 
-// Initialize search when DOM is ready
-document.addEventListener('DOMContentLoaded', () => {
-    fetchSearchIndex();
-}); 
+// Initialize search
+fetchSearchIndex(); 
