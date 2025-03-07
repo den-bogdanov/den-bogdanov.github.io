@@ -50,14 +50,15 @@
     background: var(--entry);
     border: 2px solid var(--border);
     border-radius: 20px;
-    overflow: hidden;
+    overflow: visible;
 }
 
 .search-result a {
     display: flex;
-    align-items: center;
-    padding: 45px 50px;
-    height: 180px;
+    align-items: flex-start;
+    padding: 35px 40px;
+    min-height: 180px;
+    height: auto;
     color: var(--primary);
     text-decoration: none;
     transition: all 0.3s ease;
@@ -78,7 +79,8 @@
     line-height: 1.4;
     overflow-wrap: break-word;
     word-break: break-word;
-    max-width: 100%;
+    hyphens: auto;
+    width: 100%;
 }
 
 @media (max-width: 768px) {
@@ -92,8 +94,9 @@
     }
     
     .search-result a {
-        padding: 35px;
-        height: 140px;
+        padding: 25px 30px;
+        min-height: 140px;
+        height: auto;
     }
     
     .search-result-title {
